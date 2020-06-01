@@ -1,4 +1,7 @@
+
 # Module Project - Iterative Sorting
+
+## Tim Roy, instructor, update
 
 ## Algorithms
 
