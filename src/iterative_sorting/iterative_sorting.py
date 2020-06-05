@@ -15,14 +15,14 @@ def selection_sort(arr):
         # (hint, can do in 3 loc)
         # Your code here
         ## loop thru the next element for comparison
-        for j in range(i+1, len(arr)-2):
+        for j in range(cur_index+1, len(arr)):
         ## compare two elements
             if arr[j] < arr[smallest_index]:
         ## rename the smallest element as smallest_index
                 smallest_index = j
         # TO-DO: swap
         # Your code here
-            arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
     
     return arr
 
@@ -36,10 +36,14 @@ def bubble_sort(arr):
     for i in range(len(arr) - 1):
 
         for j in (0, len(arr) - i - 1):
-            
+            # swaps = None
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
-
+            # if arr[i] > arr[j]:
+            #     arr[i], arr[j] = arr[j], arr[i]
+            #     swaps += 1
+            # if swaps is None:
+            #     return arr
     return arr
 
 '''
