@@ -33,17 +33,29 @@ def bubble_sort(arr):
     ## Keep track of swaps, if no swaps end program
     ## compare the first and second elements
     ## if first is bigger, swap
-    for i in range(len(arr) - 1):
+    # for i in range(0, len(arr) - 1):
 
-        for j in (0, len(arr) - i - 1):
-            # swaps = None
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-            # if arr[i] > arr[j]:
-            #     arr[i], arr[j] = arr[j], arr[i]
-            #     swaps += 1
-            # if swaps is None:
-            #     return arr
+    #     for j in (0, len(arr) - i - 1):
+    #         # swaps = None
+    #         if arr[j] > arr[j+1]:
+    #             arr[j], arr[j+1] = arr[j+1], arr[j]
+    #         # if arr[i] > arr[j]:
+    #         #     arr[i], arr[j] = arr[j], arr[i]
+    #         #     swaps += 1
+    #         # if swaps is None:
+    #         #     return arr
+    made_a_swap = True
+    
+    while made_a_swap:
+        made_a_swap = False
+
+        for i in range(0, len(arr)-1):
+            j = i + 1
+
+            if arr[i] > arr[j]:
+                arr[i], arr[j] = arr[j], arr[i]
+                made_a_swap = True
+
     return arr
 
 '''
@@ -63,8 +75,44 @@ buckets.
 
 What is the time and space complexity of the counting sort algorithm?
 '''
-def counting_sort(arr, maximum=None):
-    # Your code here
+def counting_sort(arr, maximum=-1):  # O(N) => linear
+    # if len(arr) == 0:
+    #     return arr
+    # if maximum == -1:
+    #     maximum = max(arr)
+    # # convert number to index 
+    # # and then convert index back to sorted numbers
+    # count = [0] * (maximum + 1)
+
+    # for value in arr:
+    #     if value < 0:
+    #         return "ERROR negative numbers not allowed"
+    #     count[value] +=1
+
+    # j = 0
+    # for i in range(0, len(count)):
+    #     while count[i] > 0:
+    #         arr[j] = i
+    #         j +=1
+    #         count[i] -= 1
+
+    if len(arr) == 0:
+        return arr
+    if maximum == -1:
+        maximum = max(arr)
+    
+    counts = [0] * (maximum + 1)
+    for value in arr:
+        if value < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        counts[value] += 1
+    
+    j = 0
+    for i in range(0, len(counts)):
+        while counts[i] > 0:
+            arr[j] = i
+            j += 1
+            counts[i] -= 1
 
 
     return arr
